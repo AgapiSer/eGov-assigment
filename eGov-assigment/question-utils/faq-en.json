@@ -1,0 +1,23 @@
+[
+    {
+      "id": 0,
+      "question": "What documents are required for enrollment?",
+      "answer": "The required documents are: the child’s birth certificate, health booklet (page with vaccinations), proof of permanent residence (utility bill or rental agreement), and a kindergarten attendance certificate."
+    },
+    {
+      "id": 1,
+      "question": "Can I enroll my child in a school outside our residential area?",
+      "answer": "The child must enroll in the school of the area where the family permanently resides. Exceptions can be made upon approval by the local Directorate of Primary Education."
+    },
+    {
+      "id": 2,
+      "question": "Is enrollment done online or only in person?",
+      "answer": "Enrollment is usually carried out in person at the school in your area. However,in some cases online applications through the Unified Digital Portal (gov.gr) can be accepted."
+    },
+    {
+      "id": 3,
+      "question": "What should I do if I have lost one of the required documents?",
+      "answer": "If a document is missing, contact the competent authority (Municipality or Ministry) for reissue. The school may temporarily accept a statutory declaration until you provide the official document."
+    }
+  ]
+  

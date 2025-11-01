@@ -1,0 +1,52 @@
+[
+    {
+      "id": 0,
+      "question": "Has your child ever been enrolled in Primary School before?",
+      "options": [
+        "No, this is the first time they will be enrolled",
+        "Yes, but I want to transfer them to another school",
+        "Yes, but I have lost the required documents"
+      ]
+    },
+    {
+      "id": 1,
+      "question": "Will the child have completed their 6th year of age by December 31 of the current year?",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Is the child a permanent resident of the area where the school is located?",
+      "options": [
+        "Yes, we live within the school district",
+        "No, we live in another area"
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Do you have the required enrollment documents (e.g. birth certificate, health booklet, proof of residence)?",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id": 4,
+      "question": "Who is submitting the enrollment application?",
+      "options": [
+        "The parent or legal guardian of the child",
+        "An authorized person with a signed declaration"
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Do you have a kindergarten attendance certificate?",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    }
+  ]
+  

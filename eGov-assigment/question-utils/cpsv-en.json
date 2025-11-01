@@ -1,0 +1,66 @@
+{
+    "PublicService": {
+      "name": "Enrollment of a Student in Primary School",
+      "evidence": [
+        {
+          "id": 1,
+          "evs": [
+            {
+              "id": "ev0001",
+              "type": "Evidence",
+              "name": "Student Birth Certificate",
+              "description": "Automatically issued by the Municipal Registry Information System. If not automated, a copy must be submitted by the parent or guardian."
+            },
+            {
+              "id": "ev0002",
+              "type": "Evidence",
+              "name": "Child Health Booklet (vaccination page)",
+              "description": "Required to confirm that the prescribed vaccinations have been carried out according to the National Vaccination Program."
+            },
+            {
+              "id": "ev0003",
+              "type": "Evidence",
+              "name": "Proof of Permanent Residence",
+              "description": "Can be a utility bill, lease agreement, or certification of permanent residence from the Municipality."
+            },
+            {
+              "id": "ev0004",
+              "type": "Evidence",
+              "name": "Kindergarten Attendance Certificate",
+              "description": "Required for all children enrolling in the first grade of primary school for the first time."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "evs": [
+            {
+              "id": "ev0005",
+              "type": "Evidence",
+              "name": "Enrollment Application",
+              "description": "The application is submitted by the parent or guardian at the local school, usually during the period 10–20 June."
+            }
+          ]
+        }
+      ],
+      "criterion_requirements": [
+        {
+          "id": "cr0001",
+          "name": "The child must have completed the 6th year of age by 31 December of the current year."
+        },
+        {
+          "id": "cr0002",
+          "name": "The child must be a permanent resident of the school’s catchment area."
+        },
+        {
+          "id": "cr0003",
+          "name": "Enrollment must occur within the prescribed period (10–20 June)."
+        },
+        {
+          "id": "cr0004",
+          "name": "The parent or guardian must submit a complete file of supporting documents."
+        }
+      ]
+    }
+  }
+  
