@@ -179,29 +179,80 @@
 <!-- JS -->
 <script type="text/javascript" src="js/change-language-functions.js"></script>
 <script>
-    // Add a click event listener to the SVG link
-    const logoLink = document.getElementById("logo-link");
-    logoLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent the default link behavior 
-        location.reload(); // Reload the page
-    });
+const data = {
+  questions: [
+    {id:"q1", type:"question", text:"Το παιδί συμπληρώνει τα 6 έτη έως την 31η Δεκεμβρίου του έτους εγγραφής;", possible_answers:[
+      {id:"a1_yes", text:"Ναι", next_step:"q2"},
+      {id:"a1_no", text:"Όχι", next_step:"end_reject_age"}
+    ]},
+    {id:"q2", type:"question", text:"Το παιδί ανήκει στη σχολική περιφέρεια της σχολικής μονάδας που επιθυμείτε;", possible_answers:[
+      {id:"a2_yes", text:"Ναι", next_step:"q3"},
+      {id:"a2_no", text:"Όχι / Δεν είμαι σίγουρος", next_step:"end_reject_district"}
+    ]},
+    {id:"q3", type:"question", text:"Το παιδί έχει φοιτήσει στο Νηπιαγωγείο και διαθέτει Πιστοποιητικό Φοίτησης;", possible_answers:[
+      {id:"a3_yes", text:"Ναι", next_step:"q4"},
+      {id:"a3_no", text:"Όχι", next_step:"end_reject_certificate"}
+    ]},
+    {id:"q4", type:"question", text:"Το παιδί έχει ολοκληρωμένους τους απαραίτητους εμβολιασμούς;", possible_answers:[
+      {id:"a4_yes", text:"Ναι", next_step:"q5"},
+      {id:"a4_no", text:"Όχι, αλλά υπάρχει συνεργασία με υγειονομικούς φορείς", next_step:"q5"}
+    ]},
+    {id:"q5", type:"question", text:"Το παιδί ή η οικογένεια ανήκουν σε ευάλωτη κοινωνική ομάδα;", possible_answers:[
+      {id:"a5_yes", text:"Ναι", next_step:"q6"},
+      {id:"a5_no", text:"Όχι", next_step:"q6"}
+    ]},
+    {id:"q6", type:"question", text:"Διαθέτετε αποδεικτικό διεύθυνσης κατοικίας;", possible_answers:[
+      {id:"a6_yes", text:"Ναι", next_step:"q7"},
+      {id:"a6_no", text:"Όχι", next_step:"q7"}
+    ]},
+    {id:"q7", type:"question", text:"Διαθέτετε Ατομικό Δελτίο Υγείας Μαθητή (ΑΔΥΜ);", possible_answers:[
+      {id:"a7_yes", text:"Ναι", next_step:"q8"},
+      {id:"a7_no", text:"Όχι", next_step:"q8"}
+    ]},
+    {id:"q8", type:"question", text:"Το παιδί έχει ληξιαρχική πράξη γέννησης (ιδίως για μαθητές από το εξωτερικό);", possible_answers:[
+      {id:"a8_yes", text:"Ναι", next_step:"q9"},
+      {id:"a8_no", text:"Όχι", next_step:"q9"}
+    ]},
+    {id:"q9", type:"question", text:"Το παιδί έχει γνωμάτευση ή έκθεση αξιολόγησης από ΚΕΣΥ ή άλλο αρμόδιο φορέα;", possible_answers:[
+      {id:"a9_yes", text:"Ναι", next_step:"end_success"},
+      {id:"a9_no", text:"Όχι", next_step:"end_success"}
+    ]},
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const disclaimerLink = document.getElementById("disclaimerLink");
-        const disclaimerModalElement = document.getElementById('disclaimerModal');
-        const disclaimerModal = new bootstrap.Modal(disclaimerModalElement);
+    {id:"end_reject_age", type:"end", text:"Η αίτηση δεν μπορεί να προχωρήσει επειδή το παιδί δεν πληροί το ηλικιακό κριτήριο (6 ετών)."},
+    {id:"end_reject_district", type:"end", text:"Η αίτηση δεν μπορεί να προχωρήσει επειδή το παιδί δεν ανήκει στη σχολική περιφέρεια."},
+    {id:"end_reject_certificate", type:"end", text:"Η αίτηση δεν μπορεί να προχωρήσει επειδή δεν υπάρχει Πιστοποιητικό Φοίτησης από το Νηπιαγωγείο."},
+    {id:"end_success", type:"end", text:"Η διαδικασία ολοκληρώθηκε. Μπορείτε να προχωρήσετε στην υποβολή της αίτησης."}
+  ]
+};
 
-        disclaimerLink.addEventListener("click", function (event) {
-            event.preventDefault();
-            disclaimerModal.show();
-        });
+const app = document.getElementById("app");
 
-        const closeButton = document.getElementById("modalButton")
-        closeButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            disclaimerModal.hide();
-        })
-    });
+function render(stepId) {
+  const step = data.questions.find(q => q.id === stepId);
+  if(!step) return;
+
+  app.innerHTML = "";
+  const box = document.createElement("div");
+  box.className = "question-box";
+  box.innerHTML = `<p>${step.text}</p>`;
+
+  if(step.type === "end") {
+    app.appendChild(box);
+    return; // σταματάει η ροή
+  }
+
+  step.possible_answers.forEach(ans => {
+    const btn = document.createElement("button");
+    btn.textContent = ans.text;
+    btn.addEventListener("click", () => render(ans.next_step));
+    box.appendChild(btn);
+  });
+
+  app.appendChild(box);
+}
+
+render("q1");
 </script>
+
 
 </html>
